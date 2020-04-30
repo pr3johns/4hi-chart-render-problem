@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('./fonts/Brandon Grotesque/Brandon_reg.otf');
+}
+
 .App {
   text-align: center;
 }
@@ -20,6 +25,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: 'BrandonGrotesque';
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -43,16 +49,19 @@
 .navbar-brand {
   padding: 20px;
   font-size: 30px;
+  font-family: 'BrandonGrotesque';
 }
 
 .card-header {
   color: rgb(214, 198, 187);
   font-size: 18px;
+  font-family: 'BrandonGrotesque';
 }
 
 .card-body {
   background: #52525c;
   color: #ececee;
+  font-family: 'BrandonGrotesque';
 }
 
 @keyframes App-logo-spin {
