@@ -1,8 +1,20 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
+import Chart from 'react-google-charts';
 
 export default function Body() {
+  const [renderCnt,setRenderCnt] = useState(0);
+  /*
+  const chartEvents = [
+    {
+      eventName: "ready",
+      callback({ chartWrapper }) {
+        alert('google chart is ready! Render count=' + renderCnt);
+      }
+    }
+  ];  */
+  
   return (
     <Accordion class="accordion" defaultActiveKey="0">
 
@@ -37,12 +49,23 @@ export default function Body() {
       </Card>
 
       <Card bg="dark" text="white">
-        <Accordion.Toggle as={Card.Header} eventKey="2">
+        <Accordion.Toggle as={Card.Header} onClick={()=>setRenderCnt(renderCnt+1)} eventKey="2">
           <strong>Demographics: Who We Are</strong>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="2">
           <Card.Body>
-            Hello! I'm another body
+              <p>This is the {renderCnt} time I have rendered. This is a huge amount of text to determine the max width of this box blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
+              <p>Here's the data: </p>
+              <Chart
+                width={'800px'}
+                height={'400px'}
+                chartType="PieChart"
+                options={{backgroundColor: '#28282e', legend: {position: 'labeled', textStyle: {color: 'white'}}}}
+                loader={<div>Loading chart...</div>}
+                spreadSheetUrl="https://docs.google.com/spreadsheets/d/199C0Q8OoeCLrpT6c-zc_cmfd0zUSTP-3vWaSsID4AyM"
+                spreadSheetQueryParameters={{gid: "207320841&range=E2:F8", headers: 1}}
+              />             
+            <button onClick={()=>setRenderCnt(renderCnt+1)}>Refresh</button>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
