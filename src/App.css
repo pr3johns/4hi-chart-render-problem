@@ -54,14 +54,19 @@
 
 .card-header {
   color: rgb(214, 198, 187);
-  font-size: 18px;
+  font-size: 22px;
   font-family: 'BrandonGrotesque';
 }
 
 .card-body {
-  background: #52525c;
+  background: #28282e;
   color: #ececee;
+    font-size: 18px;
   font-family: 'BrandonGrotesque';
+}
+
+li {
+  margin: 0.5em;
 }
 
 @keyframes App-logo-spin {

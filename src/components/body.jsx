@@ -12,7 +12,7 @@ export default function Body() {
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="0">
           <Card.Body variant="foo">
-            <p>First of all, thanks to everyone who took the time to fill out this year's survey. Obviously it's been a crazy last couple of months for everyone, and it's so gratifying to see the people willing to give their time and share their knowledge and experiences for the greater community Ok, let's get to it!</p>
+            <p>First of all, thanks to all 163 tech leaders who took the time to fill out this year's survey. Obviously it's been a crazy last couple of months for everyone, and it's so gratifying to see the people willing to give their time and share their knowledge and experiences for the greater community Ok, let's get to it!</p>
             <p>&nbsp; &mdash; Agustin and Paul</p>
           </Card.Body>
         </Accordion.Collapse>
@@ -25,12 +25,12 @@ export default function Body() {
         <Accordion.Collapse eventKey="1">
           <Card.Body>
             <ul>
-              <li>Demographic takeaway</li>
+              <li>43% of our respondents work in companies with $10M to $100M ARR. We've taken to calling this stage in the tech company growth cycle the <q>uncanny valley</q>. Too big to just wing it, but still too small to have put together reliable processes. Lots of companies stall at this stage, the transition from <strong>informal collaboration</strong> into <strong>reliable large-scale execution</strong>. </li>
               <li>Mainline health</li>
-              <li>Staying on sched</li>
-              <li>Direct reports</li>
-              <li>Perf reviews</li>
-              <li>Tech hiring</li>
+              <li>Small (under $10M ARR) and large (over $100M ARR) mostly manage to ship on schedule. But within that <strong>uncanny valley</strong>, companies can struggle. The data shows that companies which focus on velocity do stay on-schedule better. So, let's focus on speed this year!</li>
+              <li>Almost everyone wants fewer direct reports. But how do we get there? Survey data shows a possible path: technical manager training. If this is you, check out the details on how your peers have done this cost-effectively and time-efficiently.</li>
+              <li>Another thing we all seem to want is more-frequent performance reviews. Turns out the path to better feedback and more engagement is paved with lightweight and efficient <strong>review processes</strong>. It's much easier to review frequently if you don't have to reinvent the wheel each time!</li>
+              <li>The survey shows two clear paths to growing your team through hiring. One involves a reliance on external recruiters and other outside help, and the other involves in-house interviewer training. They both work, but one is definitely more scalable than the other.</li>
             </ul>
           </Card.Body>
         </Accordion.Collapse>

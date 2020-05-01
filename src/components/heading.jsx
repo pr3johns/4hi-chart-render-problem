@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from './logo_copy.png';
 
-const navbar = {backgroundColor: '#F16E10 !important'};
 export default function Heading() {
   return (
     <Navbar bg="dark" variant="dark">
