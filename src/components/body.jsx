@@ -31,7 +31,6 @@ export default function Body() {
         spreadSheetUrl="https://docs.google.com/spreadsheets/d/199C0Q8OoeCLrpT6c-zc_cmfd0zUSTP-3vWaSsID4AyM"
         spreadSheetQueryParameters={{gid: "207320841&range=E2:F8", headers: 1}}
       />             
-      <button onClick={()=>setRenderCnt(renderCnt+1)}>Refresh</button>
     </Card.Body>
     );
   }
@@ -74,7 +73,7 @@ export default function Body() {
           <strong>Demographics: Who We Are</strong>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="2">
-          {renderCnt == 0 ? <p>Loading data...</p>:renderDemographicsCard()}
+          {renderCnt === 0 ? <p>Loading data...</p>:renderDemographicsCard()}
         </Accordion.Collapse>
       </Card>
 
