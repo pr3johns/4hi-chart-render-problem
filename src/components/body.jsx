@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, { useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Chart from 'react-google-charts';
@@ -62,7 +62,7 @@ export default function Body() {
               <li>Small (under $10M ARR) and large (over $100M ARR) mostly manage to ship on schedule. But within that <strong>uncanny valley</strong>, companies can struggle. The data shows that companies which focus on velocity do stay on-schedule better. So, let's focus on speed this year!</li>
               <li>Almost everyone wants fewer direct reports. But how do we get there? Survey data shows a possible path: technical manager training. If this is you, check out the details on how your peers have done this cost-effectively and time-efficiently.</li>
               <li>Another thing we all seem to want is more-frequent performance reviews. Turns out the path to better feedback and more engagement is paved with lightweight and efficient <strong>review processes</strong>. It's much easier to review frequently if you don't have to reinvent the wheel each time!</li>
-              <li>The survey shows two clear paths to growing your team through hiring. One involves a reliance on external recruiters and other outside help, and the other involves in-house interviewer training. They both work, but one is definitely more scalable than the other.</li>
+              <li>The survey shows two clear paths to growing your team through hiring. One involves a reliance on external recruiters, and the other involves in-house interviewer training. They both work, but one is definitely less expensive and more scalable than the other.</li>
             </ul>
           </Card.Body>
         </Accordion.Collapse>
