@@ -105,7 +105,33 @@ export default function Body() {
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="5">
           <Card.Body>
-            Hello! I'm another body
+            <p>
+              If there's one nearly-universal fact about tech leadership, it's that we have more
+              direct reports than we want. We saw that in last year's report, and this year is no
+              different. Over average, we currently have 9 direct reports, but we wish we had 7.
+              That's a huge difference across such a large group of leaders.
+            </p>
+            <p>
+              So this year we tried to tease out some correlations. We want to look at the
+              difference between actual and desired reports, which is a metric of dissatisfaction
+              with the current situation. Call it the <strong>Direct Report Pain Index</strong>. And the
+              most striking relationship we saw is between this Pain Index and organization size.
+            </p>
+              [first chart in direct reports tab]
+            <p>
+              The uncanny valley strikes again! Leaders of small groups are happy enough, and so are
+              leaders of large organizations. It's the orgs in the middle, probably growing fast, that are
+              feeling the pain of too many direct reports. Ok, we see the problem, but what can we do 
+              about it? The data showed a glimmer of hope: manager training.
+            </p>
+              [second chart in direct reports tab]
+            <p>
+              It's pretty clear. Companies that have explicit manager training programs have nearly
+              three fewer direct reports! When we dug in, we got quite a few comments from leaders who
+              said that implementing a lightweight and effective training program was an important aspect
+              of regaining their sanity at work. And it also has the benefit of making those career-progression
+              conversations at review time a lot less painful.
+            </p>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
@@ -116,7 +142,23 @@ export default function Body() {
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="6">
           <Card.Body>
-            Hello! I'm another body
+            <p>
+              Almost half of us do performance reviews once a year, and almost half of us would like to
+              be doing them every 6 months. And almost a quarter of us want to do them every 3 months. It 
+              makes sense: we know that reviews are important for our people, but they're often incredibly
+              time-consuming and kind of exhausting.
+            </p>
+              [ chart in review cycles tab]
+            <p>
+              So how do we achieve more-frequent reviews? The data shows one thing that could help:
+              standardizing the review
+              process. Companies that have a standard process only want to shorten the cycle by an average
+              of 2.2 months. Those that don't have a standard process want to shorten by 3.6 months.
+              Anecdotally we hear that having a standardized process, complete with leveling guides and
+              other feedback collection mechanisms, makes doing reviews much less time-consuming. Employee
+              happiness and engagement go up, and so does productivity. Especially for low performers, as
+              we saw in last year's report.
+            </p>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
@@ -127,11 +169,42 @@ export default function Body() {
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="7">
           <Card.Body>
-            Hello! I'm another body
+            <p>
+              Finally we come to hiring. We've talked a lot about hiring at Essilen Research this year, as
+              you may have seen. This is one of those subjects where we actually have a pretty strong opinion:
+              using external recruiters for technical hires is a short-term bandaid that
+              prevents scaling over the long-term. So how do we decrease our reliance on expensive and 
+              often-ineffective recruiters? The answer might be training our interviewers better.
+            </p>
+              [chart in tech hiring tab]
+            <p>
+              At first it seems counter-intuitive: recruiters are about sourcing candidates, not evaluating them!
+              But in fact, we've seen this a lot. There's a very high correlation between explicit interviewer
+              training and overall organic investment in the hiring pipeline. We may sound like a broken record 
+              sometimes, but we really believe that <strong>hiring is the most important on-going activity tech
+              companies undertake</strong>. The quality of employees defines the quality of the company, and it's
+              and important core competency to develop.
+            </p>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
 
+      <Card bg="dark" text="white">
+        <Accordion.Toggle as={Card.Header} eventKey="8">
+          <strong>Conclusions</strong>
+        </Accordion.Toggle>
+        <Accordion.Collapse eventKey="8">
+          <Card.Body>
+            <p>
+              We've covered a lot here, and hopefully you found some useful nuggets. Thanks again to everyone who 
+              took the time to provide the data that made this report possible. As always, if you want to dig into
+              these questions with us, please do reach out. We love talking about this stuff and we love finding
+              ways to improve how tech companies grow and function.
+            </p>
+            <a href="https://calendly.com/essilenresearch/free-consultation">Get in touch!</a>
+          </Card.Body>
+        </Accordion.Collapse>
+      </Card>
     </Accordion>
   );
 }
