@@ -6,7 +6,7 @@ import Chart from 'react-google-charts';
 export default function Body() {
   const [renderCnt,setRenderCnt] = useState(0);
  
-  /* the following "chartEvents" structure useful for debugging chart lib
+  /* the following "chartEvents" structure useful for debugging chart lib 
   const chartEvents = [
     {
       eventName: "ready",
@@ -69,7 +69,7 @@ export default function Body() {
       </Card>
 
       <Card bg="dark" text="white">
-        <Accordion.Toggle as={Card.Header} onClick={()=>setRenderCnt(renderCnt+1)} eventKey="2">
+        <Accordion.Toggle as={Card.Header} onClick={()=>{ if(renderCnt===0) {setRenderCnt(1)} }} eventKey="2">
           <strong>Demographics: Who We Are</strong>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="2">
