@@ -60,9 +60,11 @@ export default function Body() {
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="2">
           <Card.Body>
-            <p>This year we had great an excellent diversity of responses across all layers of engineering leadership and technical domains.</p>
+            <p>This year we had an excellent diversity of responses across all layers of engineering leadership. The most common of us is a director of engineering at a company making less than $100M with les than 50 downline reports.</p>
             {
               renderCnt === 0 ? <p>Loading data...</p>:
+                <div>
+                  <p>Distribution of roles of respondents:</p>
                 <Chart
                     width={'100%'}
                     height={chartParams.demoChartHeight}
@@ -72,6 +74,27 @@ export default function Body() {
                     spreadSheetUrl={chartParams.surveyDataURL}
                     spreadSheetQueryParameters={{gid: "207320841&range=E2:F8", headers: 1}}
                 />
+                <p>Distribution of annual recurring revenue of respondents:</p>
+                <Chart
+                  width={'100%'}
+                  height={chartParams.demoChartHeight}
+                  chartType="PieChart"
+                  options={{backgroundColor: '#28282e', legend: {position: 'labeled', textStyle: {color: 'white'}}}}
+                  loader={<div>Loading chart...</div>}
+                  spreadSheetUrl={chartParams.surveyDataURL}
+                  spreadSheetQueryParameters={{gid: "207320841&range=E12:F16", headers: 1}}
+                />
+                <p>Number of employees in the org tree:</p>
+                <Chart
+                  width={'100%'}
+                  height={chartParams.demoChartHeight}
+                  chartType="PieChart"
+                  loader={<div>Loading chart...</div>}
+                  options={{backgroundColor: '#28282e', legend: {position: 'labeled', textStyle: {color: 'white'}}}}
+                  spreadSheetUrl={chartParams.surveyDataURL}
+                  spreadSheetQueryParameters={{gid: "207320841&range=E20:F25", headers: 1}}
+                />
+                </div>
             }
           </Card.Body>
         </Accordion.Collapse>
