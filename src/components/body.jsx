@@ -4,7 +4,9 @@ import Card from 'react-bootstrap/Card'
 import Chart from 'react-google-charts';
 
 export default function Body() {
-  const [renderCnt,setRenderCnt] = useState(0);
+  const [rendered,setRendered] = useState({"0": true});
+    // semantics: rendered is an object indicating whiich sections are rendered. Each key in the object
+    // corresponds to the accordion eventKey. These are only needed for accordions that render a chart.
 
   const chartParams ={
     surveyDataURL: "https://docs.google.com/spreadsheets/d/199C0Q8OoeCLrpT6c-zc_cmfd0zUSTP-3vWaSsID4AyM",
@@ -55,14 +57,14 @@ export default function Body() {
       </Card>
 
       <Card bg="dark" text="white">
-        <Accordion.Toggle as={Card.Header} onClick={()=>{ if(renderCnt===0) {setRenderCnt(1)} }} eventKey="2">
+        <Accordion.Toggle as={Card.Header} onClick={()=>{ !("2" in rendered) && setRendered({...rendered, "2": true}) }} eventKey="2">
           <strong>Demographics: Who We Are</strong>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="2">
           <Card.Body>
             <p>This year we had an excellent diversity of responses across all layers of engineering leadership. The most common of us is a director of engineering at a company making less than $100M with les than 50 downline reports.</p>
             {
-              renderCnt === 0 ? <p>Loading data...</p>:
+              !("2" in rendered) ? <p>Loading data...</p>:
                 <div>
                   <p>Distribution of roles of respondents:</p>
                 <Chart
@@ -101,12 +103,37 @@ export default function Body() {
       </Card>
 
       <Card bg="dark" text="white">
-        <Accordion.Toggle as={Card.Header} eventKey="3">
+        <Accordion.Toggle as={Card.Header} onClick={()=>{!("3" in rendered) && setRendered({...rendered, "3":true})}} eventKey="3">
           <strong>Mainline Health: The Gift That Keeps Giving</strong>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="3">
           <Card.Body>
-            Hello! I'm another body
+            <div>
+            <p>Software mainline health shows a clear trend. Small teams have mainlines that are releaseable most of the time, but as team sizes grow teams lose control!
+               When teams are really small it's easy to keep track of the mainline without much process. But as teams grow, miscommunication can very quickly lead to mainline
+               breaks. However, once companies get above 200 people, they climb out of the <b>uncanny valley</b> and get rigor back in to the mainline. The signal is clear:
+               companies that grow get control of their mainline by instituting the right processes.
+            </p>
+            {
+            !("3" in rendered) ? <p>Loading data...</p>:
+              <Chart
+                    width={'100%'}
+                    height={'400px'}
+                    chartType="ColumnChart"
+                    loader={<div>Loading chart...</div>}
+                    options={{
+                      backgroundColor: '#28282e', 
+                      isStacked: 'percent', 
+                      legend: {textStyle: {color: 'white'}},
+                      hAxis: {title: 'Team size', titleTextStyle: {color:'white'}},
+                      vAxis: {textStyle: {color: 'white'}},
+                      series: [{color:'#4285f4'}, {color:'blue'}, {color:'gold'},{color:'red'}]
+                    }}
+                    spreadSheetUrl={chartParams.surveyDataURL}
+                    spreadSheetQueryParameters={{gid: "0&range=E3:I8", headers: 1}}
+                  />
+            }
+            </div>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
