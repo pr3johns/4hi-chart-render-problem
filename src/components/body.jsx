@@ -62,11 +62,14 @@ export default function Body() {
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="2">
           <Card.Body>
-            <p>This year we had an excellent diversity of responses across all layers of engineering leadership. The most common of us is a director of engineering at a company making less than $100M with les than 50 downline reports.</p>
+            <p>
+              This year we saw an excellent diversity of responses across all layers of engineering 
+              leadership. The typical respondent runs a group at a company making between $10M and 
+              $100M, and has between 15 and 50 downline reports.</p>
             {
               !("2" in rendered) ? <p>Loading data...</p>:
                 <div>
-                  <p>Distribution of roles of respondents:</p>
+                  <p><strong>Distribution of roles of respondents:</strong></p>
                 <Chart
                     width={'100%'}
                     height={chartParams.demoChartHeight}
@@ -76,7 +79,7 @@ export default function Body() {
                     spreadSheetUrl={chartParams.surveyDataURL}
                     spreadSheetQueryParameters={{gid: "207320841&range=E2:F8", headers: 1}}
                 />
-                <p>Distribution of annual recurring revenue of respondents:</p>
+                <p><strong>Distribution of annual recurring revenue of respondents:</strong></p>
                 <Chart
                   width={'100%'}
                   height={chartParams.demoChartHeight}
@@ -86,7 +89,7 @@ export default function Body() {
                   spreadSheetUrl={chartParams.surveyDataURL}
                   spreadSheetQueryParameters={{gid: "207320841&range=E12:F16", headers: 1}}
                 />
-                <p>Number of employees in the org tree:</p>
+                <p><strong>Number of employees in the org tree:</strong></p>
                 <Chart
                   width={'100%'}
                   height={chartParams.demoChartHeight}
@@ -109,10 +112,15 @@ export default function Body() {
         <Accordion.Collapse eventKey="3">
           <Card.Body>
             <div>
-            <p>Software mainline health shows a clear trend. Small teams have mainlines that are releaseable most of the time, but as team sizes grow teams lose control!
-               When teams are really small it's easy to keep track of the mainline without much process. But as teams grow, miscommunication can very quickly lead to mainline
-               breaks. However, once companies get above 200 people, they climb out of the <b>uncanny valley</b> and get rigor back in to the mainline. The signal is clear:
-               companies that grow get control of their mainline by instituting the right processes.
+            <p>Software mainline health shows a clear trend. Smaller teams have releasable mainlines
+               most of the time, but as team size grows we start to lose control! This makes sense.
+               Small can manage the mainline without needing much process. But as teams grow, 
+               miscommunication quickly starts to cause mainline
+               breaks.
+            </p>
+            <p>Once companies get above 200 people, they climb out of the <b>uncanny valley</b>
+               and develop processes that once again let them ship effectively. The signal is pretty clear:
+               companies that manage to grow get control of their mainline by instituting the right processes.
             </p>
             {
             !("3" in rendered) ? <p>Loading data...</p>:

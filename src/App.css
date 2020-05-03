@@ -3,6 +3,10 @@
   src: url('./fonts/Brandon Grotesque/Brandon_reg.otf');
 }
 
+html {
+  background-color: #1f1f1f;
+}
+
 .App {
   text-align: center;
 }
