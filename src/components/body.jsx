@@ -21,24 +21,6 @@ export default function Body() {
     }
   ];  
   */
-
-  function renderDemographicsCard() {
-    return(
-    <Card.Body>
-      <p>This year's survey saw an excellent diversity of leadership across multiple technology disciplines.</p>
-          <Chart
-            width={'100%'}
-            height={chartParams.demoChartHeight}
-            chartType="PieChart"
-            options={{backgroundColor: '#28282e', legend: {position: 'labeled', textStyle: {color: 'white'}}}}
-            loader={<div>Loading chart...</div>}
-            spreadSheetUrl={chartParams.surveyDataURL}
-            spreadSheetQueryParameters={{gid: "207320841&range=E2:F8", headers: 1}}
-          /> 
-    </Card.Body>
-    );
-  }  
-
   return (
     <Accordion class="accordion" defaultActiveKey="0">
 
@@ -77,7 +59,21 @@ export default function Body() {
           <strong>Demographics: Who We Are</strong>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="2">
-          {renderCnt === 0 ? <p>Loading data...</p>:renderDemographicsCard()}
+          <Card.Body>
+            <p>This year we had great an excellent diversity of responses across all layers of engineering leadership and technical domains.</p>
+            {
+              renderCnt === 0 ? <p>Loading data...</p>:
+                <Chart
+                    width={'100%'}
+                    height={chartParams.demoChartHeight}
+                    chartType="PieChart"
+                    options={{backgroundColor: '#28282e', legend: {position: 'labeled', textStyle: {color: 'white'}}}}
+                    loader={<div>Loading chart...</div>}
+                    spreadSheetUrl={chartParams.surveyDataURL}
+                    spreadSheetQueryParameters={{gid: "207320841&range=E2:F8", headers: 1}}
+                />
+            }
+          </Card.Body>
         </Accordion.Collapse>
       </Card>
 
