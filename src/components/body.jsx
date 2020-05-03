@@ -125,7 +125,7 @@ export default function Body() {
                       backgroundColor: '#28282e', 
                       isStacked: 'percent', 
                       legend: {textStyle: {color: 'white'}},
-                      hAxis: {title: 'Team size', titleTextStyle: {color:'white'}},
+                      hAxis: {title: 'Team size', titleTextStyle: {color:'white'}, textStyle: {color: 'white'}},
                       vAxis: {textStyle: {color: 'white'}},
                       series: [{color:'#4285f4'}, {color:'blue'}, {color:'gold'},{color:'red'}]
                     }}
