@@ -19,18 +19,18 @@ export default function Body() {
 
   function renderDemographicsCard() {
     return(
-      <Card.Body>
+    <Card.Body>
       <p>This is the {renderCnt} time I have rendered. This is a huge amount of text to determine the max width of this box blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
       <p>Here's the data: </p>
-      <Chart
-        width={'800px'}
-        height={'400px'}
-        chartType="PieChart"
-        options={{backgroundColor: '#28282e', legend: {position: 'labeled', textStyle: {color: 'white'}}}}
-        loader={<div>Loading chart...</div>}
-        spreadSheetUrl="https://docs.google.com/spreadsheets/d/199C0Q8OoeCLrpT6c-zc_cmfd0zUSTP-3vWaSsID4AyM"
-        spreadSheetQueryParameters={{gid: "207320841&range=E2:F8", headers: 1}}
-      />             
+          <Chart
+            width={'100%'}
+            height={'400px'}
+            chartType="PieChart"
+            options={{backgroundColor: '#28282e', legend: {position: 'labeled', textStyle: {color: 'white'}}}}
+            loader={<div>Loading chart...</div>}
+            spreadSheetUrl="https://docs.google.com/spreadsheets/d/199C0Q8OoeCLrpT6c-zc_cmfd0zUSTP-3vWaSsID4AyM"
+            spreadSheetQueryParameters={{gid: "207320841&range=E2:F8", headers: 1}}
+          /> 
     </Card.Body>
     );
   }
