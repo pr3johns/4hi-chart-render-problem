@@ -156,13 +156,15 @@ export default function Body() {
           <Card.Body>
           <div>
             <p>
-              Few would disagree that the ability to stay on schedule is important. The survey
-              data shows us just how essential schedule reliability can be to success. Quite simply, companies
-              that stay on schedule make more money! The correlation is strong. Small and medium teams struggle--
-              more than half of such respondents reporting it difficult to stay on schedule. But 
-              the big companies--despite the added complexities of larger staffs and more product lines--report 
-              just the opposite. The message here is loud and clear: successful teams are teams that can produce work on
-              schedule. Here's the data to prove it:  
+              We all know that staying on schedule is important. The survey
+              data shows just how essential schedule reliability matters. Quite simply, companies
+              that stay on schedule make more money! The correlation is strong. Small and medium-sized teams
+              struggle: 
+              more than half of such respondents reporting it's hard to stay on schedule. But 
+              the big companies report just the opposite. Despite the added complexities of larger staffs
+              and more product lines!
+              The message here is loud and clear: successful teams are teams that can produce work on
+              schedule. Here's the data:  
             </p><br></br>
             <p><b>Do you find it difficult to stay on schedule?</b></p>
             {
