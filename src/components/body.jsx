@@ -272,7 +272,23 @@ export default function Body() {
               makes sense: we know that reviews are important for our people, but they're often incredibly
               time-consuming and kind of exhausting.
             </p>
-              [ chart in review cycles tab]
+            {
+              <Chart
+                chartEvents={chartEvents}
+                width={'100%'}
+                height={'400px'}
+                loader={<div>Loading chart...</div>}
+                chartType="ColumnChart"
+                options={{
+                  legend: {position: 'top', textStyle: {color: 'white'}},
+                  backgroundColor: '#28282e',
+                  hAxis: {title: 'Performance Review Frequency', titleTextStyle: {color:'white'}, textStyle: {color: 'white'}},
+                  vAxis: {textStyle: {color: 'white'}, titleTextStyle: {color:'white'}}
+                }}
+                spreadSheetUrl={chartParams.surveyDataURL}
+                spreadSheetQueryParameters={{gid: '1873948593&range=A13:C17', headers: 1}}
+              />
+              }
             <p>
               So how do we achieve more-frequent reviews? The data shows one thing that could help:
               standardizing the review
@@ -300,7 +316,23 @@ export default function Body() {
               prevents scaling over the long-term. So how do we decrease our reliance on expensive and 
               often-ineffective recruiters? The answer might be training our interviewers better.
             </p>
-              [chart in tech hiring tab]
+            {
+              <Chart
+                chartEvents={chartEvents}
+                width={'100%'}
+                height={'400px'}
+                loader={<div>Loading chart...</div>}
+                chartType="ColumnChart"
+                options={{
+                  legend: {position: 'none'},
+                  backgroundColor: '#28282e',
+                  hAxis: {title: 'External Recruiter Use', titleTextStyle: {color:'white'}, textStyle: {color: 'white'}},
+                  vAxis: {title: 'Respondents With Interviewer Training', textStyle: {color: 'white'}, titleTextStyle: {color:'white'}}
+                }}
+                spreadSheetUrl={chartParams.surveyDataURL}
+                spreadSheetQueryParameters={{gid: '645644372&range=A2:B4'}}
+              />
+              }
             <p>
               At first it seems counter-intuitive: recruiters are about sourcing candidates, not evaluating them!
               But in fact, we've seen this a lot. There's a very high correlation between explicit interviewer
