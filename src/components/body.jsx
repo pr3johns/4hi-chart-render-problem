@@ -175,7 +175,7 @@ export default function Body() {
                     backgroundColor: '#28282e',
                     isStacked: 'percent',
                     legend: {textStyle: {color: 'white'}},
-                    hAxis: {title: 'Annual Recurring Revenue', titleTextStyle: {color:'white'}, textStyle: {color: 'white'}},
+                    hAxis: {title: 'Annual Recurring Revenue ($M)', titleTextStyle: {color:'white'}, textStyle: {color: 'white'}},
                     vAxis: {textStyle: {color: 'white'}}
                   }}
                   spreadSheetUrl={chartParams.surveyDataURL}
