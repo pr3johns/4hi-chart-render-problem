@@ -218,7 +218,7 @@ export default function Body() {
                     options={{
                       legend: {position: 'none'},
                       backgroundColor: '#28282e',
-                      hAxis: {title: 'Team size', titleTextStyle: {color:'white'}, textStyle: {color: 'white'}},
+                      hAxis: {title: 'Team Size', titleTextStyle: {color:'white'}, textStyle: {color: 'white'}},
                       vAxis: {title: 'Avg Desired Reduction in Reports', textStyle: {color: 'white'}, titleTextStyle: {color:'white'}}
                     }}
                     spreadSheetUrl={chartParams.surveyDataURL}
@@ -231,7 +231,23 @@ export default function Body() {
                 feeling the pain of too many direct reports. Ok, we see the problem, but what can we do 
                 about it? The data showed a glimmer of hope: manager training.
               </p>
-                [second chart in direct reports tab]
+              {
+                  <Chart
+                    chartEvents={chartEvents}
+                    width={'100%'}
+                    height={'400px'}
+                    loader={<div>Loading chart...</div>}
+                    chartType="ColumnChart"
+                    options={{
+                      legend: {position: 'none'},
+                      backgroundColor: '#28282e',
+                      hAxis: {title: 'Do you have a tech manager training process?', titleTextStyle: {color:'white'}, textStyle: {color: 'white'}},
+                      vAxis: {baseline: 0, title: 'Number of Direct Reports', textStyle: {color: 'white'}, titleTextStyle: {color:'white'}}
+                    }}
+                    spreadSheetUrl={chartParams.surveyDataURL}
+                    spreadSheetQueryParameters={{gid: '1089159322&range=A5:B6'}}
+                  />
+              }
               <p>
                 It's pretty clear. Companies that have explicit manager training programs have nearly
                 three fewer direct reports! When we dug in, we got quite a few comments from leaders who
