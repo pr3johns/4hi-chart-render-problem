@@ -216,10 +216,10 @@ export default function Body() {
                     loader={<div>Loading chart...</div>}
                     chartType="ColumnChart"
                     options={{
+                      legend: {position: 'none'},
                       backgroundColor: '#28282e',
-                      legend: {textStyle: {color: 'white'}},
                       hAxis: {title: 'Team size', titleTextStyle: {color:'white'}, textStyle: {color: 'white'}},
-                      vAxis: {title: 'Avg Desired Reduction', textStyle: {color: 'white'}, titleTextStyle: {color:'white'}}
+                      vAxis: {title: 'Avg Desired Reduction in Reports', textStyle: {color: 'white'}, titleTextStyle: {color:'white'}}
                     }}
                     spreadSheetUrl={chartParams.surveyDataURL}
                     spreadSheetQueryParameters={{gid: '1089159322&range=A21:B26', headers: 1}}
