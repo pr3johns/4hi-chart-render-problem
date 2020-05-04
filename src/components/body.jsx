@@ -13,16 +13,17 @@ export default function Body() {
     demoChartHeight: '400px'
   }
   
-  /* the following "chartEvents" structure useful for debugging chart lib 
+  // the following "chartEvents" structure useful for debugging chart lib 
   const chartEvents = [
     {
       eventName: "ready",
       callback({ chartWrapper }) {
-        alert('google chart is ready! Render count=' + renderCnt);
+        console.log('google chart ready, rendered status:');
+        console.log(rendered);
       }
     }
   ];  
-  */
+  
   return (
     <Accordion class="accordion" defaultActiveKey="0">
 
@@ -118,7 +119,7 @@ export default function Body() {
                miscommunication quickly starts to cause mainline
                breaks.
             </p>
-            <p>Once companies get above 200 people, they climb out of the <b>uncanny valley</b>
+            <p>Once companies get above 200 people, they climb out of the <b>uncanny valley </b>
                and develop processes that once again let them ship effectively. The signal is pretty clear:
                companies that manage to grow get control of their mainline by instituting the right processes.
             </p>
@@ -147,49 +148,97 @@ export default function Body() {
       </Card>
 
       <Card bg="dark" text="white">
-        <Accordion.Toggle as={Card.Header} eventKey="4">
-          <strong>Staying On Schedule: Mind Your Velocity</strong>
+        <Accordion.Toggle as={Card.Header} eventKey="4" onClick={()=>{"4" in rendered || setRendered({...rendered, "4":true})}}>
+          <strong>Staying On Schedule: A Clear Key to Success</strong>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="4">
           <Card.Body>
-            Hello! I'm another body
+          <div>
+            <p>
+              Few would disagree that the ability to stay on schedule is important. The survey
+              data shows us just how essential schedule reliability can be to success. Quite simply, companies
+              that stay on schedule make more money! The correlation is strong. Small and medium teams struggle--
+              more than half of such respondents reporting it difficult to stay on schedule. But 
+              the big companies--despite the added complexities of larger staffs and more product lines--report 
+              just the opposite. The message here is loud and clear: successful teams are teams that can produce work on
+              schedule. Here's the data to prove it:  
+            </p><br></br>
+            <p><b>Do you find it difficult to stay on schedule?</b></p>
+            {
+              !("4" in rendered) ? <p>Loading data...</p>:
+                <Chart
+                  width={'100%'}
+                  height={'400px'}
+                  loader={<div>Loading chart...</div>}
+                  chartType="ColumnChart"
+                  options={{
+                    backgroundColor: '#28282e',
+                    isStacked: 'percent',
+                    legend: {textStyle: {color: 'white'}},
+                    hAxis: {title: 'Annual Recurring Revenue', titleTextStyle: {color:'white'}, textStyle: {color: 'white'}},
+                    vAxis: {textStyle: {color: 'white'}}
+                  }}
+                  spreadSheetUrl={chartParams.surveyDataURL}
+                  spreadSheetQueryParameters={{gid: '1131955082&range=D64:F68', headers: 1}}
+                />
+            }
+          </div>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
 
       <Card bg="dark" text="white">
-        <Accordion.Toggle as={Card.Header} eventKey="5">
+        <Accordion.Toggle as={Card.Header} eventKey="5" onClick={()=>{setRendered({...rendered, "5": true})}}>
           <strong>Direct Reports: We Want Fewer!</strong>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="5">
           <Card.Body>
-            <p>
-              If there's one nearly-universal fact about tech leadership, it's that we have more
-              direct reports than we want. We saw that in last year's report, and this year is no
-              different. Over average, we currently have 9 direct reports, but we wish we had 7.
-              That's a huge difference across such a large group of leaders.
-            </p>
-            <p>
-              So this year we tried to tease out some correlations. We want to look at the
-              difference between actual and desired reports, which is a metric of dissatisfaction
-              with the current situation. Call it the <strong>Direct Report Pain Index</strong>. And the
-              most striking relationship we saw is between this Pain Index and organization size.
-            </p>
-              [first chart in direct reports tab]
-            <p>
-              The uncanny valley strikes again! Leaders of small groups are happy enough, and so are
-              leaders of large organizations. It's the orgs in the middle, probably growing fast, that are
-              feeling the pain of too many direct reports. Ok, we see the problem, but what can we do 
-              about it? The data showed a glimmer of hope: manager training.
-            </p>
-              [second chart in direct reports tab]
-            <p>
-              It's pretty clear. Companies that have explicit manager training programs have nearly
-              three fewer direct reports! When we dug in, we got quite a few comments from leaders who
-              said that implementing a lightweight and effective training program was an important aspect
-              of regaining their sanity at work. And it also has the benefit of making those career-progression
-              conversations at review time a lot less painful.
-            </p>
+            <div>
+              <p>
+                If there's one nearly-universal fact about tech leadership, it's that we have more
+                direct reports than we want. We saw that in last year's report, and this year is no
+                different. Over average, we currently have 9 direct reports, but we wish we had 7.
+                That's a huge difference across such a large group of leaders.
+              </p>
+              <p>
+                So this year we tried to tease out some correlations. We want to look at the
+                difference between actual and desired reports, which is a metric of dissatisfaction
+                with the current situation. Call it the <strong>Direct Report Pain Index</strong>. And the
+                most striking relationship we saw is between this Pain Index and organization size.
+              </p>
+                {
+                  !("5" in rendered) ? <p>Loading data...</p>:
+                  <Chart
+                    chartEvents={chartEvents}
+                    width={'100%'}
+                    height={'400px'}
+                    loader={<div>Loading chart...</div>}
+                    chartType="ColumnChart"
+                    options={{
+                      backgroundColor: '#28282e',
+                      legend: {textStyle: {color: 'white'}},
+                      hAxis: {title: 'Team size', titleTextStyle: {color:'white'}, textStyle: {color: 'white'}},
+                      vAxis: {title: 'Avg Desired Reduction', textStyle: {color: 'white'}, titleTextStyle: {color:'white'}}
+                    }}
+                    spreadSheetUrl={chartParams.surveyDataURL}
+                    spreadSheetQueryParameters={{gid: '1089159322&range=A21:B26', headers: 1}}
+                  />
+                }
+              <p>
+                The uncanny valley strikes again! Leaders of small groups are happy enough, and so are
+                leaders of large organizations. It's the orgs in the middle, probably growing fast, that are
+                feeling the pain of too many direct reports. Ok, we see the problem, but what can we do 
+                about it? The data showed a glimmer of hope: manager training.
+              </p>
+                [second chart in direct reports tab]
+              <p>
+                It's pretty clear. Companies that have explicit manager training programs have nearly
+                three fewer direct reports! When we dug in, we got quite a few comments from leaders who
+                said that implementing a lightweight and effective training program was an important aspect
+                of regaining their sanity at work. And it also has the benefit of making those career-progression
+                conversations at review time a lot less painful.
+              </p>
+            </div>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
