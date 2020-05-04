@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Chart from 'react-google-charts';
+import {surveyData} from '../surveyData';
 
 export default function Body() {
   const [rendered,setRendered] = useState({"0": true});
+  var activeEventKey="0";
+
     // semantics: rendered is an object indicating whiich sections are rendered. Each key in the object
     // corresponds to the accordion eventKey. These are only needed for accordions that render a chart.
 
@@ -24,8 +27,9 @@ export default function Body() {
     }
   ];  
   
+  console.log("In Body component function...");
   return (
-    <Accordion class="accordion" defaultActiveKey="0">
+    <Accordion class="accordion" defaultActiveKey="0" onSelect={key=>activeEventKey=key} onTransitionEnd={()=>{ console.log("transition done to elem " + activeEventKey); setRendered({activeEventKey:true})}}>
 
       <Card bg="dark">
         <Accordion.Toggle as={Card.Header} eventKey="0">
@@ -58,7 +62,7 @@ export default function Body() {
       </Card>
 
       <Card bg="dark" text="white">
-        <Accordion.Toggle as={Card.Header} onClick={()=>{ !("2" in rendered) && setRendered({...rendered, "2": true}) }} eventKey="2">
+        <Accordion.Toggle as={Card.Header} eventKey="2">
           <strong>Demographics: Who We Are</strong>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="2">
@@ -68,8 +72,7 @@ export default function Body() {
               leadership. The typical respondent runs a group at a company making between $10M and 
               $100M, and has between 15 and 50 downline reports.</p>
             {
-              !("2" in rendered) ? <p>Loading data...</p>:
-                <div>
+              <div>
                   <p><strong>Distribution of roles of respondents:</strong></p>
                 <Chart
                     width={'100%'}
@@ -77,8 +80,7 @@ export default function Body() {
                     chartType="PieChart"
                     options={{backgroundColor: '#28282e', legend: {position: 'labeled', textStyle: {color: 'white'}}}}
                     loader={<div>Loading chart...</div>}
-                    spreadSheetUrl={chartParams.surveyDataURL}
-                    spreadSheetQueryParameters={{gid: "207320841&range=E2:F8", headers: 1}}
+                    data={surveyData.roleData}
                 />
                 <p><strong>Distribution of annual recurring revenue of respondents:</strong></p>
                 <Chart
@@ -100,14 +102,14 @@ export default function Body() {
                   spreadSheetUrl={chartParams.surveyDataURL}
                   spreadSheetQueryParameters={{gid: "207320841&range=E20:F25", headers: 1}}
                 />
-                </div>
+              </div>
             }
           </Card.Body>
         </Accordion.Collapse>
       </Card>
 
       <Card bg="dark" text="white">
-        <Accordion.Toggle as={Card.Header} onClick={()=>{!("3" in rendered) && setRendered({...rendered, "3":true})}} eventKey="3">
+        <Accordion.Toggle as={Card.Header} eventKey="3">
           <strong>Mainline Health: The Gift That Keeps Giving</strong>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="3">
@@ -124,7 +126,6 @@ export default function Body() {
                companies that manage to grow get control of their mainline by instituting the right processes.
             </p>
             {
-            !("3" in rendered) ? <p>Loading data...</p>:
               <Chart
                     width={'100%'}
                     height={'400px'}
@@ -148,7 +149,7 @@ export default function Body() {
       </Card>
 
       <Card bg="dark" text="white">
-        <Accordion.Toggle as={Card.Header} eventKey="4" onClick={()=>{"4" in rendered || setRendered({...rendered, "4":true})}}>
+        <Accordion.Toggle as={Card.Header} eventKey="4">
           <strong>Staying On Schedule: A Clear Key to Success</strong>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="4">
@@ -165,7 +166,6 @@ export default function Body() {
             </p><br></br>
             <p><b>Do you find it difficult to stay on schedule?</b></p>
             {
-              !("4" in rendered) ? <p>Loading data...</p>:
                 <Chart
                   width={'100%'}
                   height={'400px'}
@@ -188,7 +188,7 @@ export default function Body() {
       </Card>
 
       <Card bg="dark" text="white">
-        <Accordion.Toggle as={Card.Header} eventKey="5" onClick={()=>{setRendered({...rendered, "5": true})}}>
+        <Accordion.Toggle as={Card.Header} eventKey="5">
           <strong>Direct Reports: We Want Fewer!</strong>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="5">
@@ -207,7 +207,6 @@ export default function Body() {
                 most striking relationship we saw is between this Pain Index and organization size.
               </p>
                 {
-                  !("5" in rendered) ? <p>Loading data...</p>:
                   <Chart
                     chartEvents={chartEvents}
                     width={'100%'}
