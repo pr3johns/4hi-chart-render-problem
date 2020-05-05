@@ -6,8 +6,6 @@ import useWindowDimensions from '../windowDimensions';
 export default function Heading() {
   const { height, width } = useWindowDimensions();
 
-  console.log('Width');
-  console.log(width);
   return (
     (width < 500) ?
       <Navbar bg="dark" variant="dark">
