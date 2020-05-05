@@ -103,12 +103,15 @@ export default function Body() {
   console.log("In Body component function with intent to render: "+render+" with width: ", width);
   
   var chartOptions={};
+  var mainLineGraphLegend={};
 
   if(width<700)
   {
-    chartOptions={backgroundColor: '#28282e', legend: 'none'}
+    chartOptions={backgroundColor: '#28282e', legend: 'none'};
+    mainLineGraphLegend={position: 'top', textStyle: {color: 'white', fontSize: '5'}};
   } else {
     chartOptions={backgroundColor: '#28282e', legend: {position: 'labeled', textStyle: {color: 'white'}}};
+    mainLineGraphLegend={position: 'top', textStyle: {color: 'white'}};
   }
   return (
     <Accordion class="accordion" defaultActiveKey="0" onSelect={key=>handlePanelSelection(key)} onTransitionEnd={()=>handleTransitionEnd()}>
@@ -219,7 +222,7 @@ export default function Body() {
                 options={{
                   backgroundColor: '#28282e', 
                   isStacked: 'percent', 
-                  legend: {position: 'top', textStyle: {color: 'white', fontSize: '5'}},
+                  legend: mainLineGraphLegend,
                   hAxis: {title: 'Team size', titleTextStyle: {color:'white'}, textStyle: {color: 'white'}},
                   vAxis: {textStyle: {color: 'white'}},
                   series: [{color:'#4285f4'}, {color:'blue'}, {color:'gold'},{color:'red'}]
