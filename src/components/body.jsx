@@ -164,7 +164,8 @@ export default function Body() {
                     chartType="PieChart"
                     options={chartOptions}
                     loader={<div>Loading chart...</div>}
-                    data={surveyData.roleData}
+                    spreadSheetUrl={chartParams.surveyDataURL}
+                    spreadSheetQueryParameters={{gid: "207320841&range=E1:F8", headers: 1}}
                 />
                 <p><strong>Distribution of annual recurring revenue of respondents:</strong></p>
                 <Chart
