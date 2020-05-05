@@ -219,7 +219,7 @@ export default function Body() {
                 options={{
                   backgroundColor: '#28282e', 
                   isStacked: 'percent', 
-                  legend: {textStyle: {color: 'white'}},
+                  legend: {position: 'top', textStyle: {color: 'white', fontSize: '5'}},
                   hAxis: {title: 'Team size', titleTextStyle: {color:'white'}, textStyle: {color: 'white'}},
                   vAxis: {textStyle: {color: 'white'}},
                   series: [{color:'#4285f4'}, {color:'blue'}, {color:'gold'},{color:'red'}]
@@ -264,7 +264,7 @@ export default function Body() {
                 options={{
                   backgroundColor: '#28282e',
                   isStacked: 'percent',
-                  legend: {textStyle: {color: 'white'}},
+                  legend: {position: 'top', textStyle: {color: 'white'}},
                   hAxis: {title: 'Annual Recurring Revenue ($M)', titleTextStyle: {color:'white'}, textStyle: {color: 'white'}},
                   vAxis: {textStyle: {color: 'white'}}
                 }}
