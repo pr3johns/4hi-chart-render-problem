@@ -3,6 +3,7 @@ import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Chart from 'react-google-charts';
 import {surveyData} from '../surveyData';
+import useWindowDimensions from '../windowDimensions';
 
 // The folowwing global variable use to track accordion state for refreshing charts. Must be global.
 const STATICPANEL=1,NOPANELS=2,INTRANSITION=3;
@@ -101,6 +102,8 @@ export default function Body() {
   }
 
   console.log("In Body component function with intent to render: "+render);
+  const { height, width } = useWindowDimensions();
+  console.log(width);
   return (
     <Accordion class="accordion" defaultActiveKey="0" onSelect={key=>handlePanelSelection(key)} onTransitionEnd={()=>handleTransitionEnd()}>
 
