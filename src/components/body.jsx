@@ -3,7 +3,6 @@ import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Chart from 'react-google-charts';
 import {surveyData} from '../surveyData';
-import { ImageFilter9 } from 'material-ui/svg-icons';
 
 // The folowwing global variable use to track accordion state for refreshing charts. Must be global.
 const STATICPANEL=1,NOPANELS=2,INTRANSITION=3;
@@ -15,15 +14,13 @@ var lastNonNull=0;
 export default function Body() {
   const [render,setRender] = useState(0);
 
-    // semantics: rendered is an object indicating whiich sections are rendered. Each key in the object
-    // corresponds to the accordion eventKey. These are only needed for accordions that render a chart.
-
   const chartParams ={
     surveyDataURL: "https://docs.google.com/spreadsheets/d/199C0Q8OoeCLrpT6c-zc_cmfd0zUSTP-3vWaSsID4AyM",
     demoChartHeight: '400px'
   }
   
   // the following "chartEvents" structure useful for debugging chart lib 
+  /*
   const chartEvents = [
     {
       eventName: "ready",
@@ -31,7 +28,7 @@ export default function Body() {
         console.log('google chart ready');
       }
     }
-  ];  
+  ];  */
   
   function handlePanelSelection(eventKey) {
     let newState=0;
@@ -55,9 +52,9 @@ export default function Body() {
     }
 
     // NOW the complicated case! What if user selects a new panel before last selection finished!
-    if(accordionState==INTRANSITION) {
+    if(accordionState===INTRANSITION) {
       if(eventKey != null) {
-        if(eventKey != lastNonNull) {
+        if(eventKey !== lastNonNull) {
           expectedTransitions++
         }
       }
@@ -70,11 +67,9 @@ export default function Body() {
     if(eventKey == null) {
       lastNonNull = activeEventKey;
     }
-    
     activeEventKey=eventKey;
 
-    console.log("Selected panel "+eventKey+" state "+accordionState+" expected transitions remaining: "+expectedTransitions+ " activeKey="+activeEventKey);
-    
+    // console.log("Selected panel "+eventKey+" state "+accordionState+" expected transitions remaining: "+expectedTransitions+ " activeKey="+activeEventKey);
   }
 
   function handleTransitionEnd() {
@@ -89,21 +84,23 @@ export default function Body() {
       window.loacation.reload();
     }
 
-    if(expectedTransitions==0) {
+    if(expectedTransitions===0) {
       if(activeEventKey==null) {
         accordionState = NOPANELS;
         lastNonNull=-1;
       }
       else
       {
+        // This is the case where we've transitioned to a static panel. Re-render the graph.
         accordionState = STATICPANEL;
         lastNonNull=activeEventKey;
+        setRender(activeEventKey);
       }
     }
-    console.log("Transition done. State "+accordionState+" expected transitions remaining: "+expectedTransitions);
+    //console.log("Transition done. State "+accordionState+" expected transitions remaining: "+expectedTransitions+"event key: "+activeEventKey);
   }
 
-  console.log("In Body component function...");
+  console.log("In Body component function with intent to render: "+render);
   return (
     <Accordion class="accordion" defaultActiveKey="0" onSelect={key=>handlePanelSelection(key)} onTransitionEnd={()=>handleTransitionEnd()}>
 
@@ -148,6 +145,7 @@ export default function Body() {
               leadership. The typical respondent runs a group at a company making between $10M and 
               $100M, and has between 15 and 50 downline reports.</p>
             {
+              (render !== "2") ? <p>Loading data...</p>:
               <div>
                   <p><strong>Distribution of roles of respondents:</strong></p>
                 <Chart
@@ -202,6 +200,7 @@ export default function Body() {
                companies that manage to grow get control of their mainline by instituting the right processes.
             </p>
             {
+              (render !== "3") ? <p>loading data...</p>:
               <Chart
                 width={'100%'}
                 height={'400px'}
@@ -244,6 +243,7 @@ export default function Body() {
             </p><br></br>
             <p><b>Do you find it difficult to stay on schedule?</b></p>
             {
+              (render !== "4") ? <p>loading data...</p>:
               <Chart
                 width={'100%'}
                 height={'400px'}
@@ -285,6 +285,8 @@ export default function Body() {
                 most striking relationship we saw is between this Pain Index and organization size.
               </p>
                 {
+                  (render !== "5") ? <p>loading data...</p>:
+
                   <Chart
                     width={'100%'}
                     height={'400px'}
@@ -307,6 +309,7 @@ export default function Body() {
                 about it? The data showed a glimmer of hope: manager training.
               </p>
               {
+                  (render !== "5") ? <p>loading data...</p>:
                   <Chart
                     width={'100%'}
                     height={'400px'}
@@ -347,6 +350,7 @@ export default function Body() {
               time-consuming and kind of exhausting.
             </p>
             {
+              (render !== "6") ? <p>loading data...</p>:
               <Chart
                 width={'100%'}
                 height={'400px'}
@@ -390,6 +394,7 @@ export default function Body() {
               often-ineffective recruiters? The answer might be training our interviewers better.
             </p>
             {
+              (render !== "7") ? <p>loading data...</p>:
               <Chart
                 width={'100%'}
                 height={'400px'}
