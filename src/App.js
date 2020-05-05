@@ -5,6 +5,7 @@ import Heading from './components/heading';
 import Body from './components/body';
 
 function App() {
+  document.title = "Annual Tech Leader Survey";
   return (
     <div
       style={{
