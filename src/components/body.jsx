@@ -215,7 +215,7 @@ export default function Body() {
                   series: [{color:'#4285f4'}, {color:'blue'}, {color:'gold'},{color:'red'}]
                 }}
                 spreadSheetUrl={chartParams.surveyDataURL}
-                spreadSheetQueryParameters={{gid: "0&range=E3:I8", headers: 1}}
+                spreadSheetQueryParameters={{gid: "0&range=E12:I17", headers: 1}}
               />
             }
             </div>
