@@ -72,3 +72,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 * (if not logged in already)-> firebase login
 * firebase projects:list
 * firebase deploy
+* add git tag to ensure we have source control mapping to deployments. Run `git tag -a v2.0 -m "comment string"`. In the comment string mention the firebase deployment GUID (look on firebase console).
