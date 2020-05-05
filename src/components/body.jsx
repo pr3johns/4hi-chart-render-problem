@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Chart from 'react-google-charts';
-import {surveyData} from '../surveyData';
 import useWindowDimensions from '../windowDimensions';
 
 // The folowwing global variable use to track accordion state for refreshing charts. Must be global.
