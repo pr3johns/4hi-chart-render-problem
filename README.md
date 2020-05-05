@@ -1,4 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Steps to firebase deploy
+
+* `yarn build`
+* (if not logged in already)-> `firebase login`
+* `firebase projects:list` in root, make sure mapping to 2020 Annual Tech Leader Survey
+* `firebase deploy`
+* add git tag to ensure we have source control mapping to deployments. Run `git tag -a v2.0 -m "comment string"`. In the comment string mention the firebase deployment GUID (look on firebase console).
 
 ## Running on Repl.it
 
@@ -65,11 +71,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-## Steps to firebase deploy
 
-* make changes
-* yarn build
-* (if not logged in already)-> firebase login
-* firebase projects:list
-* firebase deploy
-* add git tag to ensure we have source control mapping to deployments. Run `git tag -a v2.0 -m "comment string"`. In the comment string mention the firebase deployment GUID (look on firebase console).
