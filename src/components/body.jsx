@@ -100,10 +100,17 @@ export default function Body() {
     }
     //console.log("Transition done. State "+accordionState+" expected transitions remaining: "+expectedTransitions+"event key: "+activeEventKey);
   }
-
-  console.log("In Body component function with intent to render: "+render);
   const { height, width } = useWindowDimensions();
-  console.log(width);
+  console.log("In Body component function with intent to render: "+render+" with width: ", width);
+  
+  var chartOptions={};
+
+  if(width<700)
+  {
+    chartOptions={backgroundColor: '#28282e', legend: 'none'}
+  } else {
+    chartOptions={backgroundColor: '#28282e', legend: {position: 'labeled', textStyle: {color: 'white'}}};
+  }
   return (
     <Accordion class="accordion" defaultActiveKey="0" onSelect={key=>handlePanelSelection(key)} onTransitionEnd={()=>handleTransitionEnd()}>
 
@@ -155,7 +162,7 @@ export default function Body() {
                     width={'100%'}
                     height={chartParams.demoChartHeight}
                     chartType="PieChart"
-                    options={{backgroundColor: '#28282e', legend: {position: 'labeled', textStyle: {color: 'white'}}}}
+                    options={chartOptions}
                     loader={<div>Loading chart...</div>}
                     data={surveyData.roleData}
                 />
@@ -164,7 +171,7 @@ export default function Body() {
                   width={'100%'}
                   height={chartParams.demoChartHeight}
                   chartType="PieChart"
-                  options={{backgroundColor: '#28282e', legend: {position: 'labeled', textStyle: {color: 'white'}}}}
+                  options={chartOptions}
                   loader={<div>Loading chart...</div>}
                   spreadSheetUrl={chartParams.surveyDataURL}
                   spreadSheetQueryParameters={{gid: "207320841&range=E12:F16", headers: 1}}
@@ -175,7 +182,7 @@ export default function Body() {
                   height={chartParams.demoChartHeight}
                   chartType="PieChart"
                   loader={<div>Loading chart...</div>}
-                  options={{backgroundColor: '#28282e', legend: {position: 'labeled', textStyle: {color: 'white'}}}}
+                  options={chartOptions}
                   spreadSheetUrl={chartParams.surveyDataURL}
                   spreadSheetQueryParameters={{gid: "207320841&range=E20:F25", headers: 1}}
                 />
