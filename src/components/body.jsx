@@ -133,11 +133,11 @@ export default function Body() {
           <Card.Body>
             <ul>
               <li>43% of our respondents work in companies with $10M to $100M ARR. We've taken to calling this stage in the tech company growth cycle the <q>uncanny valley</q>. Too big to just wing it, but still too small to have put together reliable processes. Lots of companies stall at this stage, the transition from <strong>informal collaboration</strong> into <strong>reliable large-scale execution</strong>. </li>
-              <li>Mainline health</li>
-              <li>Small (under $10M ARR) and large (over $100M ARR) mostly manage to ship on schedule. But within that <strong>uncanny valley</strong>, companies can struggle. The data shows that companies which focus on velocity do stay on-schedule better. So, let's focus on speed this year!</li>
+              <li>The first place we see this <strong>uncanny valley</strong> is when releasing software. Small companies don't have a problem yet, and big companies have solved it. But in the middle, lots of companies have trouble keeping their software release process clean.</li>
+              <li>Small (under $10M ARR) and large (over $100M ARR) mostly manage to ship on schedule. But within that uncanny valley, companies can struggle. The data shows that companies which focus on velocity do stay on-schedule better. So, let's focus on speed this year!</li>
               <li>Almost everyone wants fewer direct reports. But how do we get there? Survey data shows a possible path: technical manager training. If this is you, check out the details on how your peers have done this cost-effectively and time-efficiently.</li>
               <li>Another thing we all seem to want is more-frequent performance reviews. Turns out the path to better feedback and more engagement is paved with lightweight and efficient <strong>review processes</strong>. It's much easier to review frequently if you don't have to reinvent the wheel each time!</li>
-              <li>The survey shows two clear paths to growing your team through hiring. One involves a reliance on external recruiters, and the other involves in-house interviewer training. They both work, but one is definitely less expensive and more scalable than the other.</li>
+              <li>The survey shows two clear paths to growing your team through hiring. One involves a reliance on external recruiters, and the other involves in-house interviewer training. They both work, but one is definitely more cost-effective and scalable than the other.</li>
             </ul>
           </Card.Body>
         </Accordion.Collapse>
@@ -201,7 +201,7 @@ export default function Body() {
             <div>
             <p>Software mainline health shows a clear trend. Smaller teams have releasable mainlines
                most of the time, but as team size grows we start to lose control! This makes sense.
-               Small can manage the mainline without needing much process. But as teams grow, 
+               Small teams can manage the mainline without needing much process. But as teams grow, 
                miscommunication quickly starts to cause mainline
                breaks.
             </p>
@@ -245,8 +245,10 @@ export default function Body() {
               data shows just how essential schedule reliability matters. Quite simply, companies
               that stay on schedule make more money! The correlation is strong. Small and medium-sized teams
               struggle: 
-              more than half of such respondents reporting it's hard to stay on schedule. But 
-              the big companies report just the opposite. Despite the added complexities of larger staffs
+              more than half of such respondents report it's hard to stay on schedule.
+            </p>
+            <p>But 
+              the big companies report just the <strong>opposite</strong>. Despite the added complexities of larger staffs
               and more product lines!
               The message here is loud and clear: successful teams are teams that can produce work on
               schedule. Here's the data:  
@@ -399,7 +401,7 @@ export default function Body() {
             <p>
               Finally we come to hiring. We've talked a lot about hiring at Essilen Research this year, as
               you may have seen. This is one of those subjects where we actually have a pretty strong opinion:
-              using external recruiters for technical hires is a short-term bandaid that
+              using external recruiters for technical hires is a short-term BandAid that
               prevents scaling over the long-term. So how do we decrease our reliance on expensive and 
               often-ineffective recruiters? The answer might be training our interviewers better.
             </p>
@@ -442,7 +444,8 @@ export default function Body() {
               We've covered a lot here, and hopefully you found some useful nuggets. Thanks again to everyone who 
               took the time to provide the data that made this report possible. As always, if you want to dig into
               these questions with us, please do reach out. We love talking about this stuff and we love finding
-              ways to improve how tech companies grow and function.
+              ways to improve how tech companies grow and function. And stay tuned for some exciting new ideas
+              coming out of this survey in the next couple of months!
             </p>
             <a href="https://calendly.com/essilenresearch/free-consultation">Get in touch!</a>
           </Card.Body>
