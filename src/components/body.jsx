@@ -4,13 +4,6 @@ import Card from 'react-bootstrap/Card'
 import Chart from 'react-google-charts';
 import useWindowDimensions from '../windowDimensions';
 
-// The folowwing global variable use to track accordion state for refreshing charts. Must be global.
-const STATICPANEL=1,NOPANELS=2,INTRANSITION=3;
-var accordionState=STATICPANEL;
-var expectedTransitions=0;
-var activeEventKey=0;
-var lastNonNull=0;
-
 export default function Body() {
   const [render,setRender] = useState(0);
 
@@ -28,75 +21,6 @@ export default function Body() {
     }
   ];
   
-  function handlePanelSelection(eventKey) {
-    let newState=0;
-
-    // First the baseline cases: user clicks panel while static or no panels being displayed...
-    if(accordionState===STATICPANEL)
-    {
-      if(eventKey==null) {
-        expectedTransitions++;
-      } else {
-        expectedTransitions += 2;
-      }
-      newState=INTRANSITION;
-    }
-    else if(accordionState===NOPANELS) {
-      if(eventKey == null && alert("error condition 101, click OK to reload")) {
-        window.loacation.reload();
-      }
-      expectedTransitions++;
-      newState=INTRANSITION;
-    }
-
-    // NOW the complicated case! What if user selects a new panel before last selection finished!
-    if(accordionState===INTRANSITION) {
-      if(eventKey != null) {
-        if(eventKey !== lastNonNull) {
-          expectedTransitions++
-        }
-      }
-      newState=accordionState; // i.e. State doesn't change
-    }
-
-    if(newState === 0 && !alert("error condition 105, click OK to reload")) {window.location.reload();}
-
-    accordionState = newState;
-    if(eventKey == null) {
-      lastNonNull = activeEventKey;
-    }
-    activeEventKey=eventKey;
-
-    // console.log("Selected panel "+eventKey+" state "+accordionState+" expected transitions remaining: "+expectedTransitions+ " activeKey="+activeEventKey);
-  }
-
-  function handleTransitionEnd() {
-    if((accordionState===STATICPANEL || accordionState===NOPANELS) && !alert("error condition 102, click OK to reload")) {
-      // Doesn't make sense to get a "transition end" event while in a static state.
-      window.location.reload();
-    }
-
-    expectedTransitions--;
-
-    if(expectedTransitions < 0 && !alert("error condition 103, click ok to reload")) {
-      window.loacation.reload();
-    }
-
-    if(expectedTransitions===0) {
-      if(activeEventKey==null) {
-        accordionState = NOPANELS;
-        lastNonNull=-1;
-      }
-      else
-      {
-        // This is the case where we've transitioned to a static panel. Re-render the graph.
-        accordionState = STATICPANEL;
-        lastNonNull=activeEventKey;
-        setRender(activeEventKey);
-      }
-    }
-    //console.log("Transition done. State "+accordionState+" expected transitions remaining: "+expectedTransitions+"event key: "+activeEventKey);
-  }
   const { height, width } = useWindowDimensions();
   console.log("In Body component function with intent to render: "+render+" with width: ", width);
   
