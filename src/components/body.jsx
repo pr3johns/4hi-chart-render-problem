@@ -19,16 +19,14 @@ export default function Body() {
     demoChartHeight: '400px'
   }
   
-  // the following "chartEvents" structure useful for debugging chart lib 
-  /*
   const chartEvents = [
     {
       eventName: "ready",
       callback({ chartWrapper }) {
-        console.log('google chart ready');
+        console.log('Chart has been rendered....');
       }
     }
-  ];  */
+  ];
   
   function handlePanelSelection(eventKey) {
     let newState=0;
@@ -114,7 +112,7 @@ export default function Body() {
     mainLineGraphLegend={position: 'top', textStyle: {color: 'white'}};
   }
   return (
-    <Accordion class="accordion" defaultActiveKey="0" onSelect={key=>handlePanelSelection(key)} onTransitionEnd={()=>handleTransitionEnd()}>
+    <Accordion class="accordion" defaultActiveKey="0">
 
       <Card bg="dark">
         <Accordion.Toggle as={Card.Header} eventKey="0">
@@ -157,7 +155,6 @@ export default function Body() {
               leadership. The typical respondent runs a group at a company making between $10M and 
               $100M, and has between 15 and 50 downline reports.</p>
             {
-              (render !== "2") ? <p>Loading data...</p>:
               <div>
                   <p><strong>Distribution of roles of respondents:</strong></p>
                 <Chart
@@ -165,6 +162,7 @@ export default function Body() {
                     height={chartParams.demoChartHeight}
                     chartType="PieChart"
                     options={chartOptions}
+                    chartEvents={chartEvents}
                     loader={<div>Loading chart...</div>}
                     spreadSheetUrl={chartParams.surveyDataURL}
                     spreadSheetQueryParameters={{gid: "207320841&range=E1:F8", headers: 1}}
@@ -184,6 +182,7 @@ export default function Body() {
                   width={'100%'}
                   height={chartParams.demoChartHeight}
                   chartType="PieChart"
+                  chartEvents={chartEvents}
                   loader={<div>Loading chart...</div>}
                   options={chartOptions}
                   spreadSheetUrl={chartParams.surveyDataURL}
@@ -213,11 +212,11 @@ export default function Body() {
                companies that manage to grow get control of their mainline by instituting the right processes.
             </p>
             {
-              (render !== "3") ? <p>loading data...</p>:
               <Chart
                 width={'100%'}
                 height={'400px'}
                 chartType="ColumnChart"
+                chartEvents={chartEvents}
                 loader={<div>Loading chart...</div>}
                 options={{
                   backgroundColor: '#28282e', 
@@ -258,10 +257,10 @@ export default function Body() {
             </p><br></br>
             <p><b>Do you find it difficult to stay on schedule?</b></p>
             {
-              (render !== "4") ? <p>loading data...</p>:
               <Chart
                 width={'100%'}
                 height={'400px'}
+                chartEvents={chartEvents}
                 loader={<div>Loading chart...</div>}
                 chartType="ColumnChart"
                 options={{
@@ -300,11 +299,10 @@ export default function Body() {
                 most striking relationship we saw is between this Pain Index and organization size.
               </p>
                 {
-                  (render !== "5") ? <p>loading data...</p>:
-
                   <Chart
                     width={'100%'}
                     height={'400px'}
+                    chartEvents={chartEvents}
                     loader={<div>Loading chart...</div>}
                     chartType="ColumnChart"
                     options={{
@@ -324,10 +322,10 @@ export default function Body() {
                 about it? The data showed a glimmer of hope: manager training.
               </p>
               {
-                  (render !== "5") ? <p>loading data...</p>:
                   <Chart
                     width={'100%'}
                     height={'400px'}
+                    chartEvents={chartEvents}
                     loader={<div>Loading chart...</div>}
                     chartType="ColumnChart"
                     options={{
@@ -365,10 +363,10 @@ export default function Body() {
               time-consuming and kind of exhausting.
             </p>
             {
-              (render !== "6") ? <p>loading data...</p>:
               <Chart
                 width={'100%'}
                 height={'400px'}
+                chartEvents={chartEvents}
                 loader={<div>Loading chart...</div>}
                 chartType="ColumnChart"
                 options={{
@@ -409,10 +407,10 @@ export default function Body() {
               often-ineffective recruiters? The answer might be training our interviewers better.
             </p>
             {
-              (render !== "7") ? <p>loading data...</p>:
               <Chart
                 width={'100%'}
                 height={'400px'}
+                chartEvents={chartEvents}
                 loader={<div>Loading chart...</div>}
                 chartType="ColumnChart"
                 options={{
