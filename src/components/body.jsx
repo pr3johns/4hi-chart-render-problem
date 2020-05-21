@@ -5,8 +5,6 @@ import Chart from 'react-google-charts';
 import useWindowDimensions from '../windowDimensions';
 
 export default function Body() {
-  const [render,setRender] = useState(0);
-
   const chartParams ={
     surveyDataURL: "https://docs.google.com/spreadsheets/d/199C0Q8OoeCLrpT6c-zc_cmfd0zUSTP-3vWaSsID4AyM",
     demoChartHeight: '400px'
@@ -21,13 +19,13 @@ export default function Body() {
     }
   ];
   
-  const { height, width } = useWindowDimensions();
-  console.log("In Body component function with intent to render: "+render+" with width: ", width);
+  const dim = useWindowDimensions();
+  console.log(dim.width);
   
   var chartOptions={};
   var mainLineGraphLegend={};
 
-  if(width<700)
+  if(dim.width<700)
   {
     chartOptions={backgroundColor: '#28282e', legend: 'none'};
     mainLineGraphLegend={position: 'top', textStyle: {color: 'white', fontSize: '5'}};

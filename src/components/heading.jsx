@@ -4,10 +4,10 @@ import logo from './logo_copy.png';
 import useWindowDimensions from '../windowDimensions';
 
 export default function Heading() {
-  const { height, width } = useWindowDimensions();
+  const dim = useWindowDimensions();
 
   return (
-    (width < 500) ?
+    (dim.width < 500) ?
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="#home">
           <img
